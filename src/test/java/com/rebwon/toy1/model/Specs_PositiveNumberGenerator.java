@@ -8,15 +8,9 @@ public class Specs_PositiveNumberGenerator {
 
     @Test
     void sut_random_generator_return_positiveNumber() {
-        PositiveNumberGenerator generator = new TestRandomPositiveNumberGenerator();
+        PositiveNumberGenerator generator = new PositiveNumberGeneratorStub(50);
 
         assertThat(generator.generateNumber()).isEqualTo(new PositiveNumber(50));
     }
 
-    static class TestRandomPositiveNumberGenerator implements PositiveNumberGenerator {
-        @Override
-        public PositiveNumber generateNumber() {
-            return new PositiveNumber(50);
-        }
-    }
 }

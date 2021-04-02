@@ -4,61 +4,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.rebwon.toy1.model.Game;
-import com.rebwon.toy1.model.Player;
-import com.rebwon.toy1.model.PositiveNumber;
+import com.rebwon.toy1.model.PositiveNumberGeneratorStub;
 import org.junit.jupiter.api.Test;
 
 public class Specs_RandomNumberGame {
-
-    // Game 게임의 라이프사이클을 관리하는 역할
-    // Player 숫자를 입력하는 역할
-    // Number 숫자를 담당하는 역할
+    private static final String NEW_LINE = System.lineSeparator();
 
     @Test
-    void sut_player_input_correct_number_return_positiveNumber() {
-        Player player = new Player("kitty");
+    void sut_is_incompleted_when_it_is_initialized() {
+        Game sut = new Game(new PositiveNumberGeneratorStub(50));
 
-        PositiveNumber number = player.input(50);
+        boolean actual = sut.isCompleted();
 
-        assertThat(number).isNotNull();
+        assertThat(actual).isFalse();
     }
 
     @Test
-    void sut_player_input_number_is_smaller_than_answer() {
-        Game game = new Game(new PositiveNumber(65));
-        Player player = new Player("kitty");
+    void sut_correctly_prints_select_mode_message() {
+        Game sut = new Game(new PositiveNumberGeneratorStub(50));
 
-        game.start(player.input(50));
+        String message = sut.flushOutput();
+
+        assertThat(message).isEqualTo("Selection Mode" + NEW_LINE + "1. Single Player Mode " + NEW_LINE +
+            "2. Multi Player Mode " + NEW_LINE + "3. Exit ");
     }
-
-    @Test
-    void sut_player_input_number_is_greater_than_answer() {
-        Game game = new Game(new PositiveNumber(45));
-        Player player = new Player("kitty");
-
-        game.start(player.input(50));
-    }
-
-    @Test
-    void sut_single_player_mode_game_round_ended_return_attempted_number() {
-        Game game = new Game(new PositiveNumber(50));
-        Player player = new Player("kitty");
-
-        for(int i=1; i<=5; i++) {
-            game.start(player.input(i));
-        }
-
-        game.start(player.input(50));
-        int attemptedNumber = game.numberOfAttempt();
-
-        assertThat(game.isCompleted()).isTrue();
-        assertThat(attemptedNumber).isEqualTo(6);
-    }
-
-    @Test
-    void 멀티모드_게임_지원_여러_명의_플레이어를_넣는다_플레이어_이름은_중복되면_안된다() {
-        Game game = new Game(new PositiveNumber(40));
-
-    }
-
 }
