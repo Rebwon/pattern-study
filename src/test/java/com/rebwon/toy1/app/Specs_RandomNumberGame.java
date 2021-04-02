@@ -26,6 +26,6 @@ public class Specs_RandomNumberGame {
         String message = sut.flushOutput();
 
         assertThat(message).isEqualTo("Selection Mode" + NEW_LINE + "1. Single Player Mode " + NEW_LINE +
-            "2. Multi Player Mode " + NEW_LINE + "3. Exit ");
+            "2. Multi Player Mode " + NEW_LINE + "3. Exit " + NEW_LINE + "Enter selection : ");
     }
 }

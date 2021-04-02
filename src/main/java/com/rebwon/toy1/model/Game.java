@@ -10,7 +10,7 @@ public final class Game {
 
     public String flushOutput() {
         return "Selection Mode" + NEW_LINE + "1. Single Player Mode " + NEW_LINE +
-            "2. Multi Player Mode " + NEW_LINE + "3. Exit ";
+            "2. Multi Player Mode " + NEW_LINE + "3. Exit " + NEW_LINE + "Enter selection : ";
     }
 
     public boolean isCompleted() {
