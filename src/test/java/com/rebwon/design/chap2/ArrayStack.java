@@ -20,11 +20,9 @@ public final class ArrayStack {
     }
 
     public void push(int i) {
-        if(isFill()) {
+        if(isFill())
             throw new IllegalStateException("스택이 꽉 찼습니다.");
-        } else {
-            array[++top] = i;
-        }
+        array[++top] = i;
     }
 
     public int pop() {

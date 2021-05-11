@@ -20,11 +20,9 @@ public final class ArrayListStack {
     }
 
     public void push(int item) {
-        if(isFill()) {
+        if(isFill())
             throw new IllegalStateException("스택이 꽉 찼습니다.");
-        } else {
-            items.add(item);
-        }
+        items.add(item);
     }
 
     public int pop() {
