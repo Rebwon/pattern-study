@@ -1,7 +1,14 @@
 package com.rebwon.design.chap1;
 
-import java.util.Set;
-
 public final class Professor {
-    private Set<Student> students;
+    private Student student;
+
+    public void setStudent(Student student) {
+        this.student = student;
+        student.setAdvisor(this);
+    }
+
+    public void advise() {
+        student.advise("상담 내용은 여기에..");
+    }
 }

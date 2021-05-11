@@ -1,6 +1,7 @@
 package com.rebwon.design.chap1;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class Student {
 
@@ -15,11 +16,26 @@ public final class Student {
         this.studentNumber = studentNumber;
     }
 
+    public Set<Course> getCourse() {
+        return transcripts.stream()
+            .map(Transcript::getCourse)
+            .collect(Collectors.toSet());
+    }
+
     public void registerTranscript(Transcript transcript) {
         transcripts.add(transcript);
     }
 
     public void dropTranscript(Transcript transcript) {
-        transcripts.remove(transcript);
+        if(transcripts.contains(transcript))
+            transcripts.remove(transcript);
+    }
+
+    public void setAdvisor(Professor advisor) {
+        this.advisor = advisor;
+    }
+
+    public void advise(String msg) {
+        System.out.println(msg);
     }
 }

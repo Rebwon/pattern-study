@@ -1,6 +1,7 @@
 package com.rebwon.design.chap1;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class Course {
 
@@ -13,7 +14,13 @@ public final class Course {
         this.name = name;
     }
 
-    public void addStudent(Transcript transcript) {
+    public Set<Student> getStudents() {
+        return transcripts.stream()
+            .map(Transcript::getStudent)
+            .collect(Collectors.toSet());
+    }
+
+    public void addTranscript(Transcript transcript) {
         transcripts.add(transcript);
     }
 
