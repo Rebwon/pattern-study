@@ -13,10 +13,17 @@ class CartForSongsTest {
 
     @Test
     void integrationTest() {
-        Song s1 = new Song(new None());
-        Song s2 = new Song(new None());
-        Song s3 = new Song(new OnSale());
-        Song s4 = new Song(new TodayEvent());
+        Song s1 = new Song();
+        s1.setMode(new None());
+
+        Song s2 = new Song();
+        s2.setMode(new None());
+
+        Song s3 = new Song();
+        s3.setMode(new OnSale());
+
+        Song s4 = new Song();
+        s4.setMode(new TodayEvent());
 
         CartForSongs songs = new CartForSongs();
 

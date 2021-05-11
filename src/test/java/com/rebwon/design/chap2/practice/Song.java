@@ -4,7 +4,7 @@ public final class Song {
 
     private DiscountMode mode;
 
-    public Song(DiscountMode mode) {
+    public void setMode(DiscountMode mode) {
         this.mode = mode;
     }
 

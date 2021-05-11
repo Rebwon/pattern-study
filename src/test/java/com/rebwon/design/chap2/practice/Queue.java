@@ -6,11 +6,15 @@ public final class Queue {
     private LinkedList<String> list = new LinkedList<>();
 
     public boolean addQueue(String e) {
-        return list.add(e);
+        return list.offer(e);
     }
 
     public String removeQueue() {
-        return list.removeFirst();
+        return list.poll();
+    }
+
+    public String peekQueue() {
+        return list.peek();
     }
 
     public static void main(String[] args) {
