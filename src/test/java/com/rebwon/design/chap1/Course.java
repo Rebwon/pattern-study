@@ -6,18 +6,18 @@ public final class Course {
 
     private final String id;
     private final String name;
-    private Set<Student> students;
+    private Set<Transcript> transcripts;
 
     public Course(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public void addStudent(Student student) {
-        students.add(student);
+    public void addStudent(Transcript transcript) {
+        transcripts.add(transcript);
     }
 
-    public void removeStudent(Student student) {
-        students.remove(student);
+    public void removeStudent(Transcript transcript) {
+        transcripts.remove(transcript);
     }
 }
