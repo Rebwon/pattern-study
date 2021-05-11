@@ -14,11 +14,11 @@ public final class CartForSongs {
             Song s = iterator.next();
 
             if(s.getDiscountMode().equals("OnSale"))    // Song의 DiscountMode를 비교하는 if-else 구문을 지워버리자. 또한 Song의 내부 가격까지 알 필요는 없다.
-                total += total + (s.getPrice() - 0.1 * s.getPrice());
+                total += (s.getPrice() - 0.1 * s.getPrice());
             else if(s.getDiscountMode().equals("TodayEvent"))
-                total += total + (s.getPrice() - 0.3 * s.getPrice());
+                total += (s.getPrice() - 0.3 * s.getPrice());
             else
-                total += total + s.getPrice();
+                total += s.getPrice();
         }
 
         return total;

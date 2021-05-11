@@ -30,6 +30,6 @@ class CartForSongsTest {
         songs.add(s3);
         songs.add(s4);
 
-        assertThat(songs.calculateTotalPrice()).isEqualTo(145.0);
+        assertThat(songs.calculateTotalPrice()).isEqualTo(36.0);
     }
 }
