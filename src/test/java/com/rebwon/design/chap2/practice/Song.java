@@ -2,18 +2,18 @@ package com.rebwon.design.chap2.practice;
 
 public final class Song {
 
-    private String mode;
+    private DiscountMode mode;
 
-    public void setMode(String mode) {
+    public Song(DiscountMode mode) {
         this.mode = mode;
     }
 
-    public double getPrice() {
+    double getPrice() {
         return 10.0;
     }
 
-    public String getDiscountMode() {
-        return this.mode;
+    public double calculatePrice() {
+        return mode.calculate(getPrice());
     }
 
 }
