@@ -1,42 +1,41 @@
 package com.rebwon.design.chap2;
 
-public final class ArrayStack {
-    private int top;
-    private final int[] array;
-    private final int stackSize;
+import java.util.ArrayList;
 
-    public ArrayStack(int stackSize) {
-        this.top = -1;
-        this.array = new int[stackSize];
+public final class ArrayListStack {
+    private final int stackSize;
+    private final ArrayList<Integer> items;
+
+    public ArrayListStack(int stackSize) {
+        this.items = new ArrayList<>(stackSize);
         this.stackSize = stackSize;
     }
 
     boolean isEmpty() {
-        return top == -1;
+        return items.isEmpty();
     }
 
     boolean isFill() {
-        return (top == this.stackSize -1);
+        return (items.size() >= stackSize);
     }
 
-    public void push(int i) {
+    public void push(int item) {
         if(isFill()) {
             throw new IllegalStateException("스택이 꽉 찼습니다.");
         } else {
-            array[++top] = i;
+            items.add(item);
         }
     }
 
     public int pop() {
         if(isEmpty())
             throw new IllegalStateException("스택이 비어있습니다.");
-        return array[top--];
+        return items.remove(items.size() -1);
     }
 
     public int peek() {
         if(isEmpty())
             throw new IllegalStateException("스택이 비어있습니다.");
-        return array[top];
+        return items.get(items.size() -1);
     }
-
 }
