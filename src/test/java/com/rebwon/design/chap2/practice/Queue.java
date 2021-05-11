@@ -2,14 +2,15 @@ package com.rebwon.design.chap2.practice;
 
 import java.util.LinkedList;
 
-public final class Queue extends LinkedList<String> {
+public final class Queue {
+    private LinkedList<String> list = new LinkedList<>();
 
     public boolean addQueue(String e) {
-        return add(e);
+        return list.add(e);
     }
 
     public String removeQueue() {
-        return removeFirst();
+        return list.removeFirst();
     }
 
     public static void main(String[] args) {
