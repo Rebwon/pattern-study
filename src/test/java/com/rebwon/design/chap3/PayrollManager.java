@@ -6,10 +6,15 @@ import java.util.List;
 public final class PayrollManager {
 
     private List<Employee> employees = new ArrayList<>();
+    private Printer printer;
 
     public void writeEmployeePay() {
         employees.stream()
             .mapToInt(Employee::calculatePay)
-            .forEach(System.out::println);
+            .forEach(pay -> printer.print(pay));
+    }
+
+    interface Printer {
+        void print(int pay);
     }
 }
