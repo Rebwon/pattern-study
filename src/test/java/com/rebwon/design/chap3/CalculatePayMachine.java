@@ -36,7 +36,7 @@ public final class CalculatePayMachine extends Frame implements ActionListener, 
         this.setVisible(true);
     }
 
-    private void start() {
+    public void start() {
         calcButton.addActionListener(this);
         resetButton.addActionListener(this);
 
@@ -49,7 +49,7 @@ public final class CalculatePayMachine extends Frame implements ActionListener, 
         resetButton.setEnabled(false);
     }
 
-    private void init() {
+    public void init() {
         this.setLayout(new GridLayout(5, 1));
 
         Panel p = new Panel(new BorderLayout());
