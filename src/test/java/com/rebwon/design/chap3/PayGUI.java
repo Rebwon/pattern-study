@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-public final class CalculatePayMachine extends Frame implements ActionListener, DocumentListener {
+public final class PayGUI extends Frame implements ActionListener, DocumentListener {
     private JLabel workingHoursLabel = new JLabel("Working Hours = ", Label.RIGHT);
     private JLabel overTimeHoursLabel = new JLabel("Overtime Hours = ", Label.RIGHT);
     private JLabel payAmountLabel = new JLabel("Pay Amount = ", Label.RIGHT);
@@ -27,13 +27,17 @@ public final class CalculatePayMachine extends Frame implements ActionListener, 
     private JButton resetButton = new JButton("Reset");
     private JButton end = new JButton("Stop");
 
-    public CalculatePayMachine() {
+    private PayStrategy payStrategy;
+
+    public PayGUI(PayStrategy payStrategy) {
         super("Payment Calculation");
 
         this.init();
         this.start();
         this.setSize(500, 250);
         this.setVisible(true);
+
+        this.payStrategy = payStrategy;
     }
 
     public void start() {
@@ -122,8 +126,7 @@ public final class CalculatePayMachine extends Frame implements ActionListener, 
                 return;
             }
 
-            int payAmount;
-            payAmount = 10 * x + 15 * y;
+            int payAmount = this.payStrategy.calculate(x, y);
 
             tfResult.setText(String.valueOf(payAmount));
             resetButton.setEnabled(true);
