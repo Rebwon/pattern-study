@@ -1,4 +1,4 @@
-package com.rebwon.design.chap7.book;
+package com.rebwon.design.chap7;
 
 public final class VendingClient {
 
