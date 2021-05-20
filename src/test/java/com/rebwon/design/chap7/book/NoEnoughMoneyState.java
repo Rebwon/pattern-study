@@ -12,7 +12,7 @@ public final class NoEnoughMoneyState implements State {
         machine.getMoneyBox().insert(money);
         System.out.println(money + "원을 넣었습니다.");
 
-        if(money >= machine.getDrinking().getPrice()) {
+        if(machine.getMoneyBox().getMoney() >= machine.getDrinking().getPrice()) {
             machine.setState(machine.getEnoughMoneyState());
         }
 

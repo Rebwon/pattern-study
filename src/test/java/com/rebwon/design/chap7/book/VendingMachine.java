@@ -12,7 +12,7 @@ public final class VendingMachine {
     private Drinking drinking;
 
     public VendingMachine(int stock, int price) {
-        noMoneyState = new NoEnoughMoneyState(this);
+        noMoneyState = new NoMoneyState(this);
         noEnoughMoneyState = new NoEnoughMoneyState(this);
         enoughMoneyState = new EnoughMoneyState(this);
         soldOutState = new SoldOutState(this);
