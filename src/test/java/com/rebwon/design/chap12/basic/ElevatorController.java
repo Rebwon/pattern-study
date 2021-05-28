@@ -1,4 +1,4 @@
-package com.rebwon.design.chap11.basic;
+package com.rebwon.design.chap12.basic;
 
 public final class ElevatorController {
     private int id;

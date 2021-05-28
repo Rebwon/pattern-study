@@ -1,6 +1,6 @@
-package com.rebwon.design.chap11.realworld;
+package com.rebwon.design.chap12.realworld;
 
-import com.rebwon.design.chap11.realworld.CarStateFactory.CarStateID;
+import com.rebwon.design.chap12.realworld.CarStateFactory.CarStateID;
 
 public final class Car {
 

@@ -1,4 +1,4 @@
-package com.rebwon.design.chap11.realworld;
+package com.rebwon.design.chap12.realworld;
 
 public abstract class CarState {
 

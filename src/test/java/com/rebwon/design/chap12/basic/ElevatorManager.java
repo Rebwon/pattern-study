@@ -1,4 +1,4 @@
-package com.rebwon.design.chap11.basic;
+package com.rebwon.design.chap12.basic;
 
 import com.rebwon.design.chap8.realworld.Direction;
 import java.util.ArrayList;
