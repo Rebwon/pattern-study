@@ -1,12 +1,13 @@
 package com.rebwon.toy1;
 
-public final class Main {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Main {
 
     public static void main(String[] args) {
-        Dispatch dispatch = new Dispatch();
-        System.out.println(dispatch.method());
-//        DynamicDispatch dispatch = new DispatchImpl();
-//        System.out.println(dispatch.some());
+        SpringApplication.run(Main.class, args);
     }
 }
 
