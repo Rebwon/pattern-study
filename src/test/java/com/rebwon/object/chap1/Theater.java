@@ -17,7 +17,10 @@ public final class Theater {
     }
 
     public void setTicketOffices(TicketOffice... ticketOffices) {
-        this.ticketOffices.addAll(List.of(ticketOffices));
+        for (TicketOffice ticketOffice : ticketOffices) {
+            ticketOffice.contract(this);
+            this.ticketOffices.add(ticketOffice);
+        }
     }
 
     public void setTicket(TicketOffice ticketOffice, Long num) {
