@@ -3,8 +3,9 @@ package com.rebwon.command_processor;
 import com.rebwon.command_processor.member.ConfirmUserIdCommand;
 import com.rebwon.command_processor.member.RegisterNewUserCommand;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
-public final class UserAccessModule implements IUserAccessModule {
+public class UserAccessModule implements IUserAccessModule {
 
     private final MemberCompositionRoot root;
 
@@ -13,6 +14,7 @@ public final class UserAccessModule implements IUserAccessModule {
     }
 
     @Override
+    @Transactional
     public Object execute(ICommand command) {
         return switch (command) {
             case RegisterNewUserCommand c -> root.commandHandler(c).handle(c);
