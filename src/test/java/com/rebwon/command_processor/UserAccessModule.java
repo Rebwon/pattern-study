@@ -16,10 +16,9 @@ public class UserAccessModule implements IUserAccessModule {
     @Override
     @Transactional
     public Object execute(ICommand command) {
-        return switch (command) {
-            case RegisterNewUserCommand c -> root.commandHandler(c).handle(c);
-            case ConfirmUserIdCommand c -> root.commandHandler(c).handle(c);
-            default -> throw new IllegalStateException("Not found command handler");
-        };
+        if (command instanceof RegisterNewUserCommand) {
+            return root.commandHandler(command).handle(command);
+        }
+        return null;
     }
 }

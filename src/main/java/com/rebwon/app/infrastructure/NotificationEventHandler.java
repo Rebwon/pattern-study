@@ -19,11 +19,9 @@ public record NotificationEventHandler(NotificationRepository repository) implem
     }
 
     private Notification handleInternal(DomainEvent event) {
-        return switch (event) {
-            case MemberRegistered r -> new RegisteredNotificationHandler().handle(r);
-            case OrderCreated o -> new OrderCreatedNotificationHandler().handle(o);
-            case PaymentCompleted p -> new PaymentCompletedNotificationHandler().handle(p);
-            default -> throw new IllegalArgumentException("Unrecognized event");
-        };
+        if (event instanceof MemberRegistered) {
+            return new RegisteredNotificationHandler().handle((MemberRegistered) event);
+        }
+        return null;
     }
 }
